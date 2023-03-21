@@ -1,15 +1,24 @@
 <!DOCTYPE html>
+{% load static  %}
 <html>
   <head>
+      <link href="{% static 'inputStyle.css' %}" rel="stylesheet" type="text/css">
     <title>Input Text</title>
   </head>
   <body>
-    <h1>Enter Text:</h1>
     <form method="post">
       {% csrf_token %}
-      <input type="textarea" name="input_text">
+      
+      <div class="wrapper">
+        <h2>Enter Paragraph to Genereate Questions</h2>
+        <textarea spellcheck="false" name="input_text" placeholder="Type something here..." required></textarea>
+      </div>
+      <center>
+      <input class="btn fourth" type="submit" value="Generate Questions">
+    </center>
       <br>
-      <input type="submit" value="Generate Questions">
+      
     </form>
   </body>
+  <script src="{% static 'inputscript.js' %}"></script>
 </html>
