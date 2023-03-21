@@ -1,5 +1,5 @@
 import nltk
-import identification
+from . import identification
 
 
 def get_chunk(chunked):

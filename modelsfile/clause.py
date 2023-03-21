@@ -1,6 +1,6 @@
 import nltk
-import identification
-import nonClause
+from . import identification
+from . import nonClause
 
 
 def whom_1(segment_set, num, ner):

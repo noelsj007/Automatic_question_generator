@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Text</title>
+  </head>
+  <body>
+    <h1>Enter Text:</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="textarea" name="input_text">
+      <br>
+      <input type="submit" value="Generate Questions">
+    </form>
+  </body>
+</html>
