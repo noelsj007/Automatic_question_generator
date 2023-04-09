@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <title>
+          Kpass Login
+      </title>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'loginRegisterStyle.css'%}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  
+  <div class="container">
+    
+    <div class="title">Login
+      <a  href="{% url 'home' %}" style = "float: right;"><img style="height:18px;" src="{% static 'close.png' %}"></a>
+
+    </div>
+    
+        <div class="content">
+      
+      <form action="" method="POST">
+        
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your Email" required name="email">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your Password" required name="password">
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+        <center>
+        {% for message in messages %}
+            <p style='background-color: grey;
+            color: #fff;
+            padding: 10px;
+            margin-top: 10px;
+            margin: bottom 10px;'>{{message}}</p><br>
+        {% endfor %}
+      </center>
+        Don't have an Account 
+        <a href='/register/'>Click Here
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,5 +1,4 @@
 
-
 {% extends 'header.html' %}<br><br>
 {% block content %}
 <style>
@@ -58,17 +57,22 @@
 <div class="boxaccordion">
     <div class="containerwidth">
         <div class="wrapper">
-            <button class="toggle">Question Generated Now<i class="fas fa-plus icon"></i></button>
+            {% for generated_question_set in generated_question_sets %}
+            <button class="toggle">{{ generated_question_set.name }}<i class="fas fa-plus icon"></i></button>
             <div class="content">
-              {% if question_list %}
-              <ul>
-                {% for question in question_list %}
-                  <li>{{ question }}</li>
-                {% endfor %}
-              </ul>
-            {% else %}
-              <p>No questions generated.</p>
-            {% endif %}
+                {% if generated_question_set.generatedquestion_set.all %}
+                <ul>
+                    {% for generated_question in generated_question_set.generatedquestion_set.all %}
+                    <li>{{ generated_question.question_text }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No questions generated for this set.</p>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p>No question sets generated yet.</p>
+            {% endfor %}
         </div>
     </div>
 </div>
